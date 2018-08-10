@@ -8,14 +8,14 @@
   <property name="build" location="antbuild"/>
   <property name="dist" location="dist"/>
 
-  <target name="init">
+  <target name="test">
     <!-- Create timestamp -->
     <tstamp/>
     <!-- Create build directory for compilation -->
     <mkdir dir="${build}"/>
   </target>
 
-  <target name="compile" depends="init"
+  <target name="compile" depends="test"
       description="Compile java source code">
     <!-- Compile the Java code from src to build -->
     <javac srcdir="${src}" destdir="${build}"/>
