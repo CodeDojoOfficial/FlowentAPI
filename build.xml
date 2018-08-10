@@ -4,9 +4,9 @@
     Ant build file for the Flowent API project.
   </description>
   <!-- Set global properties -->
-  <property name="src" location="src">
-  <property name="build" location="antbuild">
-  <property name="dist" location="dist">
+  <property name="src" location="src"/>
+  <property name="build" location="antbuild"/>
+  <property name="dist" location="dist"/>
 
   <target name="init">
     <!-- Create timestamp -->
