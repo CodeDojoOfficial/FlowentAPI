@@ -1,4 +1,4 @@
-<?xml encoding='utf-8' version='1.0'?>
+<?xml version='1.0' encoding='utf-8'?>
 <project name="Flowent" default="src" basedir=".">
   <description>
     Ant build file for the Flowent API project.
