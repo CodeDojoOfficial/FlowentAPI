@@ -28,3 +28,7 @@ function updateTabs(type)
         }
     }
 }
+
+window.onload = function() {
+    window.open("#", "_top"); // Set NoFrames automatically
+}
