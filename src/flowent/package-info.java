@@ -3,6 +3,6 @@
  * CodeDojo Developer Team to expiriment with fluent interfaces in programming
  * design.
  * 
- * @version 1.0
+ * @version 1.0.2
  */
 package flowent;
