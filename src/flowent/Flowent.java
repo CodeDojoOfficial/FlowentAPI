@@ -210,6 +210,86 @@ public class Flowent implements Cloneable {
 		return this;
 	}
 	
+	public Flowent setProperty(String key, short s) {
+		properties.put(key, new Short(s));
+		
+		if(logOption) {
+			log.println(">>> setProperty(\"" + key + "\", " + s + ")\n");
+		}
+		
+		return this;
+	}
+	
+	public Flowent setProperty(String key, int i) {
+		properties.put(key, new Integer(i));
+		
+		if(logOption) {
+			log.println(">>> setProperty(\"" + key + "\", " + i + ")\n");
+		}
+		
+		return this;
+	}
+	
+	public Flowent setProperty(String key, long l) {
+		properties.put(key, new Long(l));
+		
+		if(logOption) {
+			log.println(">>> setProperty(\"" + key + "\", " + l + ")\n");
+		}
+		
+		return this;
+	}
+	
+	public Flowent setProperty(String key, float f) {
+		properties.put(key, new Float(f));
+		
+		if(logOption) {
+			log.println(">>> setProperty(\"" + key + "\", " + f + ")\n");
+		}
+		
+		return this;
+	}
+	
+	public Flowent setProperty(String key, double d) {
+		properties.put(key, new Double(d));
+		
+		if(logOption) {
+			log.println(">>> setProperty(\"" + key + "\", " + d + ")\n");
+		}
+		
+		return this;
+	}
+	
+	public Flowent setProperty(String key, boolean b) {
+		properties.put(key, new Boolean(b));
+		
+		if(logOption) {
+			log.println(">>> setProperty(\"" + key + "\", " + d + ")\n");
+		}
+		
+		return this;
+	}
+	
+	public Flowent setProperty(String key, char c) {
+		properties.put(key, new Character(c));
+		
+		if(logOption) {
+			log.println(">>> setProperty(\"" + key + "\", \'" + c + "\')\n");
+		}
+		
+		return this;
+	}
+	
+	public Flowent setProperty(String key, byte b) {
+		properties.put(key, new Character((char) b));
+		
+		if(logOption) {
+			log.println(">>> setProperty(\"" + key + "\", \'" + b + "\')\n");
+		}
+		
+		return this;
+	}
+	
 	/**
 	 * Gets a property in the flowent system. This method acts just like the
 	 * native line:
