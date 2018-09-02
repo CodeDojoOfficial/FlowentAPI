@@ -22,7 +22,8 @@
  */
 package flowent;
 
-import java.io.PrintStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * FlowentWhileLoop is an interface that can be utilized to create loops from within the method chain. More
@@ -49,7 +50,7 @@ public interface FlowentWhileLoop {
 	 * @throws Exception If something goes wrong, onError can pick up.
 	 * 
 	 * @see flowent.Flowent#runWhileLoop(FlowentWhileLoop)
-	 * @see flowent.FlowentWhileLoop#onError(Flowent, Exception, String)
+	 * @see flowent.FlowentWhileLoop#onError(Flowent, Exception, Protocol)
 	 * @see flowent.Flowent
 	 * @see flowent.FlowentWhileLoop
 	 * 
@@ -63,12 +64,12 @@ public interface FlowentWhileLoop {
 	 * If you try to call this object's execute method, and an exception is thrown, it is up to you to catch it. This is why the
 	 * {@link Flowent#runWhileLoop(FlowentWhileLoop)} method is easier. It already has the try catch in it.
 	 * <p>
-	 * By default, the onError method is set to print the exception's localized message and revive the thread,
+	 * By default, the onError method is set to print the exception's message and revive the thread,
 	 * but you can override it very easily.
 	 * 
 	 * @param f The Flowent object that called the method in the first place.
 	 * @param e The exception that caused the error.
-	 * @param location The location of the line that caused the issue
+	 * @param p The protocol for denoting when the error happened. (while loop in this case)
 	 * 
 	 * @see flowent.Flowent#runWhileLoop(FlowentWhileLoop)
 	 * @see flowent.FlowentWhileLoop#iterate(Flowent, int)
@@ -77,20 +78,16 @@ public interface FlowentWhileLoop {
 	 * 
 	 * @since 1.0.1
 	 */
-	public default void onError(Flowent f, Exception e, String location) {
+	public default void onError(Flowent f, Exception e, Protocol p) {
 		// Code taken from FlowntFunction.onError():
 		
-		PrintStream stdout = System.out;
-		System.setOut(System.err);
-		f.
-		pause(20).
-		println("Uncaught exception in thread \"" + Thread.currentThread().getName() + "\" " + e.getClass().getName() + ((e.getLocalizedMessage() != null) ? ": " + e.getLocalizedMessage() : "")).
-		println("\tat " + location);
-		f.pause(20); // Keep other print methods from executing before stdout can be reset.
-		System.setOut(stdout);
+		System.err.println("Exception in thread \"" + Thread.currentThread().getName() + "\" " + e.getClass().getName() + ((e.getMessage() != null) ? ": " + e.getMessage() : ""));
+		for(StackTraceElement stackTrace : e.getStackTrace()) {
+			System.err.println("\tat " + stackTrace.toString());
+		}
 		
-		f.
-		println("Reviving thread...");
+		System.err.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] Occured during a " + p.getValue() + " protocol.");
+		System.err.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] Reviving thread \"" + Thread.currentThread().getName() + "\"...");
 	}
 	
 }
