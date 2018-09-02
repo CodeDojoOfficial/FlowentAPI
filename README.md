@@ -30,7 +30,7 @@ install with:
 ```
 github:~ $ git clone https://github.com/CodeDojoOfficial/FlowentAPI.git
 github:~ $ cd FlowentAPI/releases/
-github:releases $ mv flow-1.0.1.jar ~/workspace/flow.jar
+github:releases $ mv flow-1.0.2.jar ~/workspace/flow.jar
 ```
 
 ## Table of Contents
@@ -70,7 +70,7 @@ The next few instructions are IDE specific. If you are using something like Vim 
 8. Click New and Enter the Name, "Flowent".
 9. Click Done and Select the new Library.
 10. Click "Add External JARs...".
-11. Select ~/FlowentAPI/releases/flow-1.0.1.jar or the latest version.
+11. Select ~/FlowentAPI/releases/flow-1.0.2.jar or the latest version.
 12. Click done.
 
 ### NetBeans IDE
@@ -79,7 +79,7 @@ The next few instructions are IDE specific. If you are using something like Vim 
 2. Select Properties.
 3. Select Libraries.
 4. Click the Add Jar/Folder button.
-5. Select ~/FlowentAPI/releases/flow-1.0.1.jar or the latest version.
+5. Select ~/FlowentAPI/releases/flow-1.0.2.jar or the latest version.
 6. Click Ok.
 
 Great! Your done! If you want to expiriment on your own, feel free to do so. The next section covers your first program.
